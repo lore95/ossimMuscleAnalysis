@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<OpenSimDocument Version="40000">
+	<AnalyzeTool name="AnalisisUI">
+		
+		<model_file>Solutions/MuscleAnlysis/Part2/M2/Models/subject_scaled_RRA2_MW_160Perc.osim</model_file>
+		
+		<replace_force_set>false</replace_force_set>
+		
+		<force_set_files> gait2392_CMC_Actuators.xml</force_set_files>
+		
+		<results_directory>Solutions/UI</results_directory>
+		
+		<output_precision>8</output_precision>
+		
+		<initial_time>1.25</initial_time>
+		
+		<final_time>2.2999999999999998</final_time>
+		
+		<solve_for_equilibrium_for_auxiliary_states>false</solve_for_equilibrium_for_auxiliary_states>
+		
+		<maximum_number_of_integrator_steps>20000</maximum_number_of_integrator_steps>
+		
+		<maximum_integrator_step_size>1</maximum_integrator_step_size>
+		
+		<minimum_integrator_step_size>1e-08</minimum_integrator_step_size>
+		
+		<integrator_error_tolerance>1.0000000000000001e-05</integrator_error_tolerance>
+		
+		<AnalysisSet name="Analyses">
+			<objects>
+				<StaticOptimization name="StaticOptimization">
+					
+					<on>false</on>
+					
+					<start_time>1.25</start_time>
+					
+					<end_time>2.2999999999999998</end_time>
+					
+					<step_interval>10</step_interval>
+					
+					<in_degrees>true</in_degrees>
+					
+					<use_model_force_set>true</use_model_force_set>
+					
+					<activation_exponent>2</activation_exponent>
+					
+					<use_muscle_physiology>true</use_muscle_physiology>
+					
+					<optimizer_convergence_criterion>0.0001</optimizer_convergence_criterion>
+					
+					<optimizer_max_iterations>100</optimizer_max_iterations>
+				</StaticOptimization>
+				<MuscleAnalysis name="MuscleAnalysis">
+					
+					<on>true</on>
+					
+					<start_time>1.25</start_time>
+					
+					<end_time>2.2999999999999998</end_time>
+					
+					<step_interval>10</step_interval>
+					
+					<in_degrees>true</in_degrees>
+					
+					<muscle_list> all</muscle_list>
+					
+					<moment_arm_coordinate_list> all</moment_arm_coordinate_list>
+					
+					<compute_moments>true</compute_moments>
+				</MuscleAnalysis>
+			</objects>
+			<groups />
+		</AnalysisSet>
+		
+		<ControllerSet name="Controllers">
+			<objects />
+			<groups />
+		</ControllerSet>
+		
+		<external_loads_file>GRF_file_walkingNormal.xml</external_loads_file>
+		
+		<states_file>RRA/subject_scaled_2392_RRA_states.sto</states_file>
+		
+		<coordinates_file />
+		
+		<speeds_file />
+		
+		<lowpass_cutoff_frequency_for_coordinates>-1</lowpass_cutoff_frequency_for_coordinates>
+	</AnalyzeTool>
+</OpenSimDocument>
